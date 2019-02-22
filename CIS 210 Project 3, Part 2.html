@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- saved from url=(0071)https://classes.cs.uoregon.edu/16F/cis210/assignments/W3-ZipBarcode.php -->
+<html class="gr__classes_cs_uoregon_edu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- This is for the <head> section of CIS210 pages,
+     not for the page header in the <body> section. 
+   Include here metadata including css links, etc., 
+   but omit the <title> element which may be specific
+   to each page. 
+   Set $root before calling this.
+-->
+
+
+<meta name="description" content="CIS 210, Computer Science 1">
+<meta name="keywords" content="Computer science, CS1"> 
+<meta name="author" content="Michal Young"> 
+
+   <link rel="stylesheet" type="text/css" href="./CIS 210 Project 3, Part 2_files/cis210.css" media="screen">
+   <link rel="stylesheet" type="text/css" href="./CIS 210 Project 3, Part 2_files/cis210-print.css" media="print">
+
+<title>CIS 210 Project 3, Part 2</title></head>
+
+<body data-gr-c-s-loaded="true">
+<div class="container">
+
+  <!-- pagehead.php: Page header to include on each page -->
+
+<div class="pageheader">
+   <div class="title">
+   <h1>CIS 210, Fall 2016<br> Introduction to Computer Science</h1>
+   </div> <!-- title -->
+   </div> <!-- pageheader -->
+<!-- end pagehead.php -->
+  <!-- sidebar.php:  Sidebar to be replicated on each page 
+     Note links must be relative to site URL-->
+<div class="sidenav">
+   <h1>Main Menu</h1>
+   <ul>
+   <li><a href="https://classes.cs.uoregon.edu/16F/cis210/index.php">Class home page</a></li>
+   <li><a href="https://piazza.com/uoregon/fall2016/cis210/home">Piazza</a></li>
+   <li><a href="https://classes.cs.uoregon.edu/16F/cis210/hints.php">How to Succeed</a></li>
+   <li><a href="https://classes.cs.uoregon.edu/16F/cis210/schedule.php">Schedule</a></li>
+   <li><a href="https://classes.cs.uoregon.edu/16F/cis210/assignments.php">Assignments</a></li>
+   <li><a href="https://classes.cs.uoregon.edu/16F/cis210/references.php">References</a></li>
+  <li><a href="https://classes.cs.uoregon.edu/16F/cis210/exams.php">Exams</a></li>
+<!--
+  <li><a href="/16F/cis210/assignments/Contest.php" >Contest</a></li>
+-->
+   </ul>
+</div>
+
+<div class="content">
+
+<div class="item">
+  <h1>Project 3, Part 2</h1>
+<p>This assignment is due Friday, October 14 at 5pm. Save your Python program
+  in a file called draw_barcode.py and turn that file in using Canvas.</p>
+<h1>Purpose</h1>
+  <p>More practice turtle graphics.  Nested for loops, lists of lists.
+</p>
+</div>
+
+
+<div class="item">
+<h1>Create a turtle graphics function to plot a barcode for a ZIP code</h1>
+
+  <p>A ZIP Code (or a ZIP+4 code) is required for all material delivered by the
+  US Postal Service.  For direct mailing by companies, a reduced postage charge
+  is made if the company supplies a barcode for the ZIP Code in addition to
+  its numeric representation.</p>
+  <p>Each digit of the barcode is represented by 5 bars, some half-height,
+  others full-height.  Each barcode starts and ends with a full-height bar
+  (often called a guard rail or frame bar).  Between the frame bars, the
+  representation of the digits
+  that make up the zip code (from high order digit to low order digit) are
+  printed, followed by the the representation of a check digit.  The check
+  digit algorithm is described further below.
+  </p>
+  The following table shows the correspondence between digits and guard rails
+  and barcodes.  Also shown is the defined binary representation for the
+  barcodes.
+  <p>
+  <img src="./CIS 210 Project 3, Part 2_files/PostalBarcodeTable.jpg">
+  </p> 
+</div>
+<div class="item">
+  <h2>Checkdigit algorithm</h2>
+  <p>
+  The check digit is chosen so that the sum of all the digits in the zip
+  code is a multiple of 10.
+  </p>
+  <p>
+  To calculate the check digit:
+  </p><ol>
+  <li>
+   Add up the digits.  For example, the zip code for the U of O is 97403; the
+   sum of these digits is 23.
+  </li>
+  <li>
+   Find the remainder when the sum is divided by 10; this is sum % 10; in our
+   example, this is 3.
+  </li>
+  <li>
+   Subtract this remainder from 10.  For our example, this difference is 7.
+   The check digit is 7.  <em>Note that if the remainder is 0,
+   the check digit is 0.</em>
+  </li>
+  </ol>
+  <p></p>
+</div>
+<div class="item">
+  <h1>Requirements</h1>
+  <p>You will create a Python program to use Turtle graphics to
+  draw the barcode corresponding to a 5-digit zip code.
+  </p>
+  <code>
+  # draw the barcode for 97403<br>
+  $ python3 draw_barcode.py 97403
+  </code>
+  <p>
+  Your barcode should look like the following image:
+  <img src="./CIS 210 Project 3, Part 2_files/BarCode97403.jpg" scale="0.5">
+  </p>
+
+</div>
+<div class="item">
+  <h1>Getting started</h1>
+  <p>This <a href="https://classes.cs.uoregon.edu/16F/cis210/assignments/base/draw_barcode.py">starter code</a> 
+    may be helpful.
+    </p>
+    </div>
+<div class="item">
+<h1>Grading</h1>
+<p>35 points possible</p>
+  <ul>
+    <li>15: Program runs and produces the correct output.
+    5 points if it produces barcode output that is not correct.
+    </li>
+
+    <li>10: Follows <a href="https://classes.cs.uoregon.edu/16F/cis210/handouts/styleguide.php">CIS 210 coding guidelines</a>, including author
+    identification and header .</li>
+    <li>10: Clarity.  The program should not only be consistent with
+    the requirements and approach described here, but it should be
+    very easy to read the program and verify its consistency with the
+    spec. </li>
+   </ul>
+</div>
+
+
+
+</div> <!-- class content -->
+
+<!-- pagefoot.php: Page footing to include on each page -->
+<div class="clearer">  </div>
+   <div class="footer">
+
+   <span style="float: left">
+   Contact <a href="mailto:jsventek@uoregon.edu?subject=CIS%20210%20web%20site">webmaster</a>.
+   </span>
+   <span style="float: right">  Based loosely on Transparentia design by Arcsin, from OSWD.org. </span>
+      &nbsp; <!-- Space to put the two floats above.  Setting text justification does not seem to do it. -->
+   </div>
+<!-- Track our traffic ?? -->
+<!-- End pagefoot.php -->
+
+</div> <!-- class container -->
+
+
+
+
+</body><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span></html>
